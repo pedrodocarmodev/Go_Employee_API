@@ -34,8 +34,8 @@ func main() {
 	router.GET("/employees/:id", handler.GetById)
 	router.POST("/employees", handler.RegisterEmployee)
 
-	router.GET("/employees/:id/fire", handler.Fire)
-	router.GET("/employees/:id/employ", handler.Employ)
+	router.PATCH("/employees/:id/fire", handler.Fire)
+	router.PATCH("/employees/:id/employ", handler.Employ)
 
 	router.Run(":8080")
 }

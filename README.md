@@ -1,15 +1,88 @@
-## Go Employee API
 
-Este é um projeto simples de API desenvolvido em Go utilizando o framework Gin.
 
-Atualmente estou aprendendo a desenvolver APIs em Go, e este projeto foi criado como prática para entender melhor conceitos como roteamento, manipulação de JSON e métodos HTTP 
-feitos com o gin framework.
+---
 
-A API gerencia funcionários em memória e permite:
+# Employee API
 
-* Listar todos os funcionários
-* Buscar um funcionário por ID
-* Criar um novo funcionário
-* Ativar ou desativar um funcionário
+Simple REST API for employee management built with **Go**, **Gin**, and **PostgreSQL**, following a **Layered Architecture** approach.
 
-Este é um projeto de estudo focado em consolidar fundamentos de Go.
+---
+## 🏗 Architecture
+
+This project follows a **Layered Architecture** pattern to separate responsibilities and reduce coupling.
+
+Flow:
+
+```
+HTTP → Handler → Service → Repository → PostgreSQL
+```
+
+The service layer depends on an interface, allowing easy replacement of the persistence layer.
+
+---
+
+
+## Requirements
+
+* Go
+* PostgreSQL
+
+---
+
+## Setup
+
+### 1. Create database
+
+```sql
+CREATE DATABASE database;
+```
+
+---
+
+### 2. Configure environment variables
+
+Copy the example file:
+
+```bash
+cp .env.example .env
+```
+
+Fill in your database credentials inside `.env`.
+
+---
+
+### 3. Install dependencies
+
+From project root:
+
+```bash
+go mod tidy
+```
+
+---
+
+### 4. Run the application
+
+```bash
+go run ./cmd/api
+```
+
+Server runs at:
+
+```
+http://localhost:8080
+```
+
+---
+
+## Endpoints
+
+* `GET /employees`
+* `GET /employees/:id`
+* `POST /employees`
+* `PATCH /employees/:id/fire`
+* `PATCH /employees/:id/employ`
+
+---
+
+
